@@ -21,6 +21,13 @@ public class PostRestController {
         return postRepository.findAll();
     }
 
+    @GetMapping("api/posts/{id}")
+    public Post selectPost(@PathVariable Long id) {
+        return postRepository.findById(id).orElseThrow(
+                () -> new NullPointerException("존재하지 않는 게시글입니다")
+        );
+    }
+
     @PostMapping("api/posts")
     public Post createPost(@RequestBody PostRequestDto requestDto) {
         Post post = new Post(requestDto);
