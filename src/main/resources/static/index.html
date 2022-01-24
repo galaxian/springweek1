@@ -76,7 +76,7 @@
                                                         <a class="button is-sparta" onclick="change()">게시글 수정하기</a>
                                                     </div>
                                                     <div class="level-item">
-                                                        <a class="button is-sparta" onclick="del()">게시글 삭제하기</a>
+                                                        <a class="button is-sparta" onclick="deletePost(${id})">게시글 삭제하기</a>
                                                     </div>
                                                     <div class="level-item">
                                                         <a class="button is-sparta is-outlined"
@@ -117,7 +117,15 @@
         function change(id) {
         }
 
-        function del(id) {
+        function deletePost(id) {
+            $.ajax({
+                type: "DELETE",
+                url: `/api/posts/${id}`,
+                success: function (response) {
+                    alert('게시글이 삭제되었습니다.');
+                    window.location.reload();
+                }
+            });
         }
     </script>
 
