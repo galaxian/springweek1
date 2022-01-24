@@ -18,7 +18,7 @@ public class PostRestController {
 
     @GetMapping("/api/posts")
     public List<Post> getPost() {
-        return postRepository.findAll();
+        return postRepository.findAllByOrderByModifiedAtDesc();
     }
 
     @GetMapping("api/posts/{id}")
