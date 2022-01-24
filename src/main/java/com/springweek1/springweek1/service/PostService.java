@@ -20,6 +20,6 @@ public class PostService {
                 () -> new NullPointerException("해당 게시글이 존재하지 않습니다.")
         );
         post.update(requestDto);
-        return id;
+        return post.getId();
     }
 }
