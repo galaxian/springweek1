@@ -33,4 +33,10 @@ public class PostRestController {
         postService.update(id, requestDto);
         return id;
     }
+
+    @DeleteMapping("api/posts/{id}")
+    public Long deletePost(@PathVariable Long id) {
+        postRepository.deleteById(id);
+        return id;
+    }
 }
