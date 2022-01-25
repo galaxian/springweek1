@@ -125,15 +125,18 @@
                     let username = post["username"];
                     let contents = post["contents"];
                     let tempHtml = `<div class="modal" id="update">
-                                    <div class="modal-background" onclick='$("#upload").removeClass("is-active")'></div>
+                                    <div class="modal-background" onclick='$("#update").removeClass("is-active")'></div>
                                     <div class="modal-content">
                                         <div class="box">
                                             <article class="media">
                                                 <div class="media-content">
                                                     <div class="field">
                                                         <div class="row gx-4 gx-lg-5 align-items-center my-5">
+                                                            <p>제목</p>
                                                             <textarea class="textarea" placeholder="제목" rows="1" id="update-title">${title}</textarea>
+                                                            <p>작성자</p>
                                                             <textarea class="textarea" placeholder="작성자" rows="1" id="update-username">${username}</textarea>
+                                                            <p>게시글</p>
                                                             <textarea class="textarea" placeholder="작성내용" rows="10" id="update-contents">${contents}</textarea>
                                                         </div>
                                                     </div>
@@ -144,7 +147,7 @@
                                                             </div>
                                                             <div class="level-item">
                                                                 <a class="button is-sparta is-outlined"
-                                                                   onclick='$("#upload").removeClass("is-active")'>돌아가기</a>
+                                                                   onclick='$("#update").removeClass("is-active")'>돌아가기</a>
                                                             </div>
                                                         </div>
                                                     </nav>
@@ -153,7 +156,7 @@
                                         </div>
                                     </div>
                                     <button class="modal-close is-large" aria-label="close"
-                                            onclick='$("#upload").removeClass("is-active")'></button>
+                                            onclick='$("#update").removeClass("is-active")'></button>
                                 </div>`;
                     $("#change").append(tempHtml);
                 }
@@ -210,18 +213,17 @@
             padding-top: 18px;
         }
 
-        #list {
-            text-align: center;
+        .textarea {
+            margin: auto;
+            resize: none;
         }
 
-        .list-group {
-            border: 5px solid #00d1b2;
-            border-radius: 9px;
-            font-size: 20px;
+        .input {
+            margin: auto;
         }
-
-        .list-group-item {
-            border: none;
+        .modal-content {
+            width: 1000px;
+            height: 550px;
         }
 
 
@@ -247,13 +249,7 @@
         <th>작성날짜</th>
     </tr>
     </thead>
-    <tfoot>
-    <tr>
-        <th>제목</th>
-        <th>작성자</th>
-        <th>작성날짜</th>
-    </tr>
-    </tfoot>
+
     <tbody id="tbody">
     </tbody>
 </table>
@@ -262,7 +258,7 @@
 </section>
 
 <section>
-    <div class="modal" id="upload">
+    <div class="modal" id="upload" >
 
         <div class="modal-background" onclick='$("#upload").removeClass("is-active")'></div>
         <div class="modal-content">
@@ -271,9 +267,12 @@
                     <div class="media-content">
                         <div class="field">
                             <div class="row gx-4 gx-lg-5 align-items-center my-5">
+                                <p>제목</p>
                                 <input class="input" type="text" placeholder="제목" id="post-title">
+                                <p>작성자</p>
                                 <input class="input" type="text" placeholder="작성자" id="post-username">
-                                <textarea class="textarea" placeholder="작성내용" rows="10" id="post-contents"></textarea>
+                                <p>게시글</p>
+                                <textarea class="textarea" placeholder="작성내용"rows="10" id="post-contents"></textarea>
                             </div>
                         </div>
                         <nav class="level is-mobile">
