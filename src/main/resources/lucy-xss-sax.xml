@@ -76,7 +76,7 @@
         <element name="ruby" />
         <element name="s" />
         <element name="samp" />
-         <element name="script"/>
+        <!-- <element name="script"/> -->
         <element name="select" />
         <element name="small" />
         <element name="span" />
